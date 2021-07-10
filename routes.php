@@ -1,9 +1,16 @@
 <?php
 
 use controllers\RouterController as Route;
+use controllers\FormController as Form;
 
 Route::add('/', function(){
-    echo "HOME";
+    $form = new Form;
+    $form->index();
 });
+
+Route::add('/add', function(){
+    //Form::add($_POST["email"], $_POST["name"]);
+    echo $_POST["email"]." ".$_POST["name"];
+}, "POST");
 
 Route::run(FOLDER_PATH);
