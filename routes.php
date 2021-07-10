@@ -9,7 +9,8 @@ Route::add('/', function(){
 });
 
 Route::add('/add', function(){
-    Form::add($_POST["email"], $_POST["name"]);
+    //Form::add($_POST["email"], $_POST["name"]);
+    echo $_POST["email"]." ".$_POST["name"];
 }, "POST");
 
 Route::run(FOLDER_PATH);
