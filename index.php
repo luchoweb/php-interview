@@ -5,15 +5,21 @@
  * @author LUCHOWEB
  */
 
-spl_autoload_register(function($class){
-    $pathFile = str_replace("\\", "/", $class) . ".php";
+ini_set("session.cookie_lifetime","86400");
+ini_set("session.gc_maxlifetime","86400");
+session_start();
 
-    if ( is_readable($pathFile) ){
-        require_once $pathFile;
-    } else {
-        print "Ha ocurrido un error.";
+require_once "vendor/autoload.php";
+
+function autoLoader ($class) {
+    $classPath = str_replace("\\", "/", $class) .".php";
+
+    if (file_exists($classPath)) {
+        require_once $classPath;
     }
-});
+}
+
+spl_autoload_register('autoLoader');
 
 require_once "config.php";
 require_once "routes.php";
