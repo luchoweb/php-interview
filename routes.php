@@ -1,16 +1,16 @@
 <?php
 
-use controllers\RouterController as Route;
+use db\Database as db;
+use controllers\RouterController as Router;
 use controllers\FormController as Form;
 
-Route::add('/', function(){
+Router::add('/', function(){
     $form = new Form;
     $form->index();
 });
 
-Route::add('/add', function(){
-    //Form::add($_POST["email"], $_POST["name"]);
-    echo $_POST["email"]." ".$_POST["name"];
+Router::add('/add', function(){
+    Form::addSubscriber($_POST["email"], $_POST["name"], $_POST["terms"]);
 }, "POST");
 
-Route::run(FOLDER_PATH);
+Router::run(ROOT_PATH);
