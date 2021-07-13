@@ -14,7 +14,7 @@
         <input id="name" name="name" type="text" placeholder="Name" class="form__input">
       </div>
       <div class="form__group">
-        <input id="terms" name="terms" type="checkbox">
+        <input id="terms" name="terms" type="checkbox" value="accepted">
         <label for="terms">I accept the <a class="form__link" href="https://www.aweber.com/permission.htm" ref="noopenner noreferrer" target="_blank">terms and conditions</a></label>
       </div>
       <button class="form__btn">Subscribe</button>

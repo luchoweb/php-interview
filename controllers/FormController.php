@@ -74,7 +74,7 @@ class FormController
         $_SESSION['REFRESH_TOKEN'] = $refreshToken;
     }
 
-    public function addSubscriber($subscriberEmail, $subscriberName)
+    public function addSubscriber($subscriberEmail, $subscriberName, $subscriberTerms)
     {
         self::getTokens();
 
@@ -108,6 +108,17 @@ class FormController
             $body["tags"] = [
                 "add" => ["test_existing_sub"],
                 "remove" => ["test_new_sub"]
+            ];
+        }
+
+        if ( $subscriberTerms == "accepted" ) {
+            $currentUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+            $body["custom_fields"] = [
+                'ip_address' => $_SERVER['REMOTE_ADDR'],
+                "subscribe_date" => date('m/d/Y'),
+                "subscribe_time" => date('H:i:s'),
+                "subscribe_url" => $currentUrl
             ];
         }
 

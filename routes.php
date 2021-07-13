@@ -10,7 +10,7 @@ Router::add('/', function(){
 });
 
 Router::add('/add', function(){
-    Form::addSubscriber($_POST["email"], $_POST["name"]);
+    Form::addSubscriber($_POST["email"], $_POST["name"], $_POST["terms"]);
 }, "POST");
 
 Router::run(ROOT_PATH);
