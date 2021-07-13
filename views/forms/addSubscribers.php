@@ -1,3 +1,13 @@
+<?php if ( isset($_GET["added"]) ) : ?>
+  <div class="alert alert-success">
+    <p>You have successfully subscribed.</p>
+  </div>
+<?php elseif ( isset($_GET["error"]) ) : ?>
+  <div class="alert alert-error">
+    <p>An error has occurred, please try again.</p>
+  </div>
+<?php endif; ?>
+
 <div class="d-flex row">
   <div class="d-flex col col-image">
     <img src="assets/images/email-icon.png" alt="email">

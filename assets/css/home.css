@@ -2,6 +2,8 @@
   --orange-light: #f5b4a0;
   --orange-dark: #ed7138;
   --gray-text: #605e5c;
+  --green-success: #72c3a0;
+  --red-error: #c37272;
 }
 
 /* RESET CSS */
@@ -18,7 +20,6 @@ body {
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
-  height: 100vh;
 }
 
 h1, h2, h3, h4, h5, b, strong {
@@ -26,14 +27,14 @@ h1, h2, h3, h4, h5, b, strong {
 }
 
 .d-flex {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
 
 .row {
-  width: 90%;
+  width: 100%;
 }
 
 .col {
@@ -52,4 +53,22 @@ h1, h2, h3, h4, h5, b, strong {
 .col-form {
   background-color: #fff;
   padding: 2rem;
+}
+
+.alert {
+  align-self: flex-start;
+  color: #fff;
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+  padding: 2rem;
+}
+.alert p {
+  margin: 0;
+}
+.alert.alert-success {
+  background-color: var(--green-success);
+}
+.alert.alert-error {
+  background-color: var(--red-error);
 }
